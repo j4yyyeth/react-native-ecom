@@ -1,11 +1,14 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
 import Details from "./screens/Details";
 import Products from "./screens/Products";
+import ProductDetails from "./screens/productStack/ProductDetails";
 import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const Tabs = () => {
   return (
@@ -22,18 +25,38 @@ const Tabs = () => {
           }
           return <Ionicons name={iconName} size={30} color={color} />
         },
+        tabBarStyle: {
+            height: 90,
+            paddingHorizontal: 5,
+            paddingTop: 0,
+            backgroundColor: 'rgba(0, 0, 0, .8)',
+            position: 'absolute',
+            borderTopWidth: 0,
+        },
+        // headerStyle: {
+        //     backgroundColor: 'white',
+        //     height: 90,
+        // },
         tabBarActiveTintColor: 'red',
-        tabBarInactiveTintColor: 'black',
-        // tabBarActiveBackgroundColor: 'black',
+        tabBarInactiveTintColor: 'gray',
         // tabBarInactiveBackgroundColor: 'red'
       })}
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Details" component={Details} />
+      <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Tab.Screen name="Details" component={Details} options={{ headerShown: false }} />
       <Tab.Screen name="Products" component={Products} />
     </Tab.Navigator>
   );
 };
+
+const Stacks = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="ProductDetails" component={ProductDetails} />
+        </Stack.Navigator>
+    )
+}
 
 const Navigation = () => {
   return (

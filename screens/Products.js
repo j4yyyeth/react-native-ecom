@@ -1,40 +1,3 @@
-// import React from "react";
-// import { View, SafeAreaView, Text, StyleSheet, Image } from "react-native";
-// import ProductItem from "../components/ProductItem";
-
-// const Products = () => {
-//   return (
-//     <SafeAreaView style={styles.container}>
-//       <ProductItem
-//         title="Wine 1"
-//         description="Wine 1 is a wine with ..."
-//         imageUrl="https://image.cnbcfm.com/api/v1/image/106880066-1620413243866PetrusWineBottle-jpg?v=1620413548"
-//       />
-//       <ProductItem
-//         title="Wine 2"
-//         description="Wine 2 is a wine with ..."
-//         imageUrl="https://image.cnbcfm.com/api/v1/image/106880066-1620413243866PetrusWineBottle-jpg?v=1620413548"
-//       />
-//       <ProductItem
-//         title="Wine 3"
-//         description="Wine 3 is a wine with ..."
-//         imageUrl="https://image.cnbcfm.com/api/v1/image/106880066-1620413243866PetrusWineBottle-jpg?v=1620413548"
-//       />
-//     </SafeAreaView>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     backgroundColor: "black",
-//     flex: 1,
-//     justifyContent: "center",
-//     alignItems: "center",
-//   },
-// });
-
-// export default Products;
-
 import React from "react";
 import { View, SafeAreaView, Text, StyleSheet, Image, FlatList } from "react-native";
 import ProductItem from "../components/ProductItem";
@@ -113,7 +76,7 @@ const Products = () => {
         data={products}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        numColumns={2} // Set the number of columns here (2 for a 2-column grid)
+        numColumns={2}
         contentContainerStyle={styles.productGrid}
       />
     </SafeAreaView>

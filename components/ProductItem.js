@@ -1,19 +1,25 @@
 import React from "react";
 import { StyleSheet, Text, Image, View } from "react-native";
-import { Link } from "@react-navigation/native";
+import { Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const ProductItem = ({ title, description, imageUrl }) => {
+  const { navigate } = useNavigation();
   return (
     <View style={styles.productContainer}>
       <Text style={styles.title}>{title}</Text>
-      <Link to={{screen: 'Product', params: { id: title } }}>
+      <Pressable
+        onPress={() => {
+          navigate("ProductDetails");
+        }}
+      >
         <Image
-            style={styles.product}
-            source={{
+          style={styles.product}
+          source={{
             uri: imageUrl,
-            }}
+          }}
         />
-      </Link>
+      </Pressable>
       <Text style={styles.description}>{description}</Text>
     </View>
   );
