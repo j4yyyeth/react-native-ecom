@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./screens/Home";
 import Details from "./screens/Details";
 import Products from "./screens/Products";
-import { StyleSheet } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
