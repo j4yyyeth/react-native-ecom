@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import {
   View,
   SafeAreaView,
@@ -10,8 +10,27 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import ProductItem from "../components/ProductItem";
+import axios from 'axios';
 
 const Products = () => {
+  const [ data, setData ] = useState("");
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('https://api.sampleapis.com/wines/reds');
+      setData(response.data);
+      data.forEach((e) => {
+        console.log("ID: ", e.id);
+        console.log("Location: ", e.location);
+        console.log("Avg Rating: ", e.rating.average);
+        console.log("# Ratings: ", e.rating.reviews);
+        console.log("Wine: ", e.wine);
+        console.log("Winery: ", e.winery);
+        console.log("Image: ", e.image);
+      })
+    } catch (err) {
+      console.log(err);
+    }
+  }
   const { navigate } = useNavigation();
   const products = [
     {
@@ -86,19 +105,30 @@ const Products = () => {
     },
   ];
 
+  
+  useEffect(() => {
+    fetchData();
+  }, [])
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={products}
+        data={data}
         renderItem={({ item }) => (
           <ProductItem
-            title={item.title}
-            description={item.description}
-            imageUrl={item.imageUrl}
+            title={item.wine}
+            winery={item.winery}
+            location={item.location}
+            averageRating={item.rating.average}
+            totalRatings={item.rating.reviews}
+            imageUrl={item.image}
             onPress={() => navigate("ProductDetails", {
-              title: item.title,
-              description: item.description,
-              imageUrl: item.imageUrl,
+              title: item.wine,
+              winery: item.winery,
+              location: item.location,
+              averageRating: item.rating.average,
+              totalRatings: item.rating.reviews,
+              imageUrl: item.image,
             })}
           />
         )}

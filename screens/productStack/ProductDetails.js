@@ -15,7 +15,7 @@ const ProductDetails = () => {
   }, [])
   return (
     <SafeAreaView style={styles.container}>
-      <ProductItem title={params.title} description={params.description} imageUrl={params.imageUrl}/>
+      <ProductItem title={params.title} winery={params.winery} imageUrl={params.imageUrl}/>
       <Text style={styles.buy}>Buy Now</Text>
     </SafeAreaView>
   );

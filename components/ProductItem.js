@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, Image, View, Pressable } from "react-native";
 
-const ProductItem = ({ title, description, imageUrl, onPress }) => {
+const ProductItem = ({ title, winery, location, averageRating, totalRatings, imageUrl, onPress }) => {
   return (
     <Pressable
       onPress={onPress}>
@@ -13,7 +13,7 @@ const ProductItem = ({ title, description, imageUrl, onPress }) => {
             uri: imageUrl,
           }}
         />
-        <Text style={styles.description}>{description}</Text>
+        <Text style={styles.description}>{winery}</Text>
       </View>
     </Pressable>
   );
@@ -28,12 +28,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   product: {
-    height: 110,
-    width: 110,
+    height: 100,
+    width: 30,
   },
   title: {
     color: "red",
-    fontSize: 30,
+    fontSize: 10,
   },
   description: {
     color: "black",
