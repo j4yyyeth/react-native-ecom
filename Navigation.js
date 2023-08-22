@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import Home from "./screens/Home";
 import Details from "./screens/Details";
 import Products from "./screens/Products";
@@ -14,7 +15,7 @@ const ProductStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Products" component={Products} />
-      <Stack.Screen name="ProductDetails" component={ProductDetails} />
+      <Stack.Screen name="ProductDetails" component={ProductDetails} options={{presentation: "modal"}} />
     </Stack.Navigator>
   );
 };

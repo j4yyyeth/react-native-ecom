@@ -1,15 +1,22 @@
-import React from "react";
+import { React, useLayoutEffect } from "react";
 import { View, SafeAreaView, Text, StyleSheet } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 import ProductItem from "../../components/ProductItem";
 
 const ProductDetails = () => {
   const route = useRoute(); 
+  const navigation = useNavigation();
   const { params } = route;
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: params.title
+    })
+  }, [])
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.txt}>Product Details Screen</Text>
       <ProductItem title={params.title} description={params.description} imageUrl={params.imageUrl}/>
+      <Text style={styles.buy}>Buy Now</Text>
     </SafeAreaView>
   );
 };
@@ -25,6 +32,10 @@ const styles = StyleSheet.create({
     fontSize: 50,
     color: "white",
   },
+  buy: {
+    fontSize: 30,
+    color: "red",
+  }
 });
 
 export default ProductDetails;
