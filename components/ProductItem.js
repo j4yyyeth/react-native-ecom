@@ -1,18 +1,21 @@
 import React from "react";
-import { StyleSheet, Text, Image, View } from "react-native";
+import { StyleSheet, Text, Image, View, Pressable } from "react-native";
 
-const ProductItem = ({ title, description, imageUrl }) => {
+const ProductItem = ({ title, description, imageUrl, onPress }) => {
   return (
-    <View style={styles.productContainer}>
-      <Text style={styles.title}>{title}</Text>
+    <Pressable
+      onPress={onPress}>
+      <View style={styles.productContainer}>
+        <Text style={styles.title}>{title}</Text>
         <Image
           style={styles.product}
           source={{
             uri: imageUrl,
           }}
         />
-      <Text style={styles.description}>{description}</Text>
-    </View>
+        <Text style={styles.description}>{description}</Text>
+      </View>
+    </Pressable>
   );
 };
 

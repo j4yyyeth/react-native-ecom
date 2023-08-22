@@ -86,25 +86,22 @@ const Products = () => {
     },
   ];
 
-  const renderItem = ({ item }) => (
-    <Pressable
-      onPress={() => {
-        navigate("ProductDetails");
-      }}
-    >
-      <ProductItem
-        title={item.title}
-        description={item.description}
-        imageUrl={item.imageUrl}
-      />
-    </Pressable>
-  );
-
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={products}
-        renderItem={renderItem}
+        renderItem={({ item }) => (
+          <ProductItem
+            title={item.title}
+            description={item.description}
+            imageUrl={item.imageUrl}
+            onPress={() => navigate("ProductDetails", {
+              title: item.title,
+              description: item.description,
+              imageUrl: item.imageUrl,
+            })}
+          />
+        )}
         keyExtractor={(item) => item.id}
         numColumns={2}
         contentContainerStyle={styles.productGrid}
