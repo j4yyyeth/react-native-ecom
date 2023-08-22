@@ -1,10 +1,17 @@
 import React from "react";
 import { StyleSheet, Text, Image, View, Pressable } from "react-native";
 
-const ProductItem = ({ title, winery, location, averageRating, totalRatings, imageUrl, onPress }) => {
+const ProductItem = ({
+  title,
+  winery,
+  location,
+  averageRating,
+  totalRatings,
+  imageUrl,
+  onPress,
+}) => {
   return (
-    <Pressable
-      onPress={onPress}>
+    <Pressable onPress={onPress}>
       <View style={styles.productContainer}>
         <Text style={styles.title}>{title}</Text>
         <Image

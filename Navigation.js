@@ -6,6 +6,7 @@ import Home from "./screens/Home";
 import Details from "./screens/Details";
 import Products from "./screens/Products";
 import ProductDetails from "./screens/productStack/ProductDetails";
+import Checkout from "./screens/productStack/Checkout";
 import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
@@ -15,7 +16,16 @@ const ProductStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Products" component={Products} />
-      <Stack.Screen name="ProductDetails" component={ProductDetails} options={{presentation: "modal"}} />
+      <Stack.Screen
+        name="ProductDetails"
+        component={ProductDetails}
+        options={{ presentation: "modal" }}
+      />
+      <Stack.Screen
+        name="Checkout"
+        component={Checkout}
+        options={{ presentation: "modal" }}
+      />
     </Stack.Navigator>
   );
 };
