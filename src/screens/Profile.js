@@ -2,13 +2,10 @@ import React from "react";
 import { View, SafeAreaView, Text, StyleSheet } from "react-native";
 import { Link } from "@react-navigation/native";
 
-const Details = () => {
+const Profile = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.txt}>Details Screen</Text>
-      <Link style={styles.lnk} to={{ screen: "Home" }}>
-        Go Home
-      </Link>
+      <Text style={styles.txt}>Profile Screen</Text>
     </SafeAreaView>
   );
 };
@@ -24,10 +21,6 @@ const styles = StyleSheet.create({
     fontSize: 50,
     color: "white",
   },
-  lnk: {
-    color: "white",
-    fontSize: 50,
-  },
 });
 
-export default Details;
+export default Profile;

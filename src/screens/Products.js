@@ -64,12 +64,12 @@ const Products = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: "#EADDCA",
   },
   productGrid: {
     justifyContent: "space-between",
-    paddingHorizontal: 8,
-    paddingVertical: 16,
+    paddingHorizontal: 1,
+    paddingVertical: 8,
   },
 });
 
