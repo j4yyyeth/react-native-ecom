@@ -1,50 +1,81 @@
-import { React, useLayoutEffect } from "react";
-import { View, SafeAreaView, Text, StyleSheet, Button } from "react-native";
-import { useRoute, useNavigation, navigate } from "@react-navigation/native";
-import ProductItem from "../../components/ProductItem";
+import { React } from "react";
+import {
+  View,
+  SafeAreaView,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+} from "react-native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 
 const ProductDetails = () => {
   const route = useRoute();
-  const navigation = useNavigation(); // navigation options --> layout
-  const { navigate } = useNavigation(); // actual navigate --> diff screens
+  const navigation = useNavigation();
   const { params } = route;
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerTitle: params.title,
-    });
-  }, []);
+  const handleBuyNow = () => {
+    navigation.navigate("Checkout");
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <ProductItem
-        title={params.title}
-        winery={params.winery}
-        imageUrl={params.imageUrl}
-      />
-      <Button
-        onPress={() => navigate("Checkout")}
-        title="Buy Now"
-        color="red"
-        accessibilityLabel="Click to buy wine"
-      />
+      <Image source={{ uri: params.imageUrl }} style={styles.productImage} />
+      <Text style={styles.title}>{params.title}</Text>
+      <Text style={styles.winery}>{params.winery}</Text>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={handleBuyNow} style={styles.button}>
+          <Text style={styles.buttonText}>Buy Now</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}} style={styles.button}>
+          <Text style={styles.buttonText}>Add to Cart</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "black",
     flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
     justifyContent: "center",
+    paddingHorizontal: 20,
+  },
+  productImage: {
+    width: 150,
+    height: 500,
+    resizeMode: "cover",
+    borderRadius: 10,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginTop: 20,
+  },
+  winery: {
+    fontSize: 18,
+    color: "#888",
+    marginTop: 10,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    marginTop: 20,
+  },
+  button: {
+    flex: 1,
+    backgroundColor: "#3498db",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 5,
+    marginHorizontal: 5,
     alignItems: "center",
   },
-  txt: {
-    fontSize: 50,
-    color: "white",
-  },
-  buy: {
-    fontSize: 30,
-    color: "red",
+  buttonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
 

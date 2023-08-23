@@ -60,8 +60,8 @@ const Tabs = () => {
         //     backgroundColor: 'white',
         //     height: 90,
         // },
-        tabBarActiveTintColor: "red",
-        tabBarInactiveTintColor: "gray",
+        tabBarActiveTintColor: "#C70039",
+        tabBarInactiveTintColor: "black",
         // tabBarInactiveBackgroundColor: 'red'
       })}
     >

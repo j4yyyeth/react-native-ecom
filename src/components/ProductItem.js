@@ -1,6 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, Image, View, Pressable, Dimensions } from "react-native";
-import { AntDesign } from '@expo/vector-icons';
+import {
+  StyleSheet,
+  Text,
+  Image,
+  View,
+  Pressable,
+  Dimensions,
+} from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 
 const ProductItem = ({
   title,
@@ -24,7 +31,9 @@ const ProductItem = ({
         <Text style={styles.description}>{winery}</Text>
         <Text style={styles.location}>{location}</Text>
         <View style={styles.ratingContainer}>
-          <Text style={styles.averageRating}>{averageRating} <AntDesign name="star" size={10} color="#F4C430" /></Text>
+          <Text style={styles.averageRating}>
+            {averageRating} <AntDesign name="star" size={10} color="#F4C430" />
+          </Text>
           <Text style={styles.totalRatings}>({totalRatings})</Text>
         </View>
       </View>
@@ -48,9 +57,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   productImage: {
-    height: 150,
-    width: "100%",
-    resizeMode: "cover",
+    width: 120,
+    height: 380,
+    borderRadius: 10,
   },
   title: {
     color: "black",
