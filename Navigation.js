@@ -2,11 +2,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Home from "./screens/Home";
-import Details from "./screens/Details";
-import Products from "./screens/Products";
-import ProductDetails from "./screens/productStack/ProductDetails";
-import Checkout from "./screens/productStack/Checkout";
+import Home from "./src/screens/Home";
+import Details from "./src/screens/Details";
+import Products from "./src/screens/Products";
+import ProductDetails from "./src/screens/productStack/ProductDetails";
+import Checkout from "./src/screens/productStack/Checkout";
 import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
