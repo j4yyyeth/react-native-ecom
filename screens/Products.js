@@ -68,7 +68,8 @@ const styles = StyleSheet.create({
   },
   productGrid: {
     justifyContent: "space-between",
-    paddingHorizontal: 16,
+    paddingHorizontal: 8,
+    paddingVertical: 16,
   },
 });
 
